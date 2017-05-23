@@ -28,7 +28,7 @@ SECRET_KEY = '1$2$19&u%f_59yrnlx64xxmyl7(qd%6)$2zi)-^(-t8r$mvjby'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["glacial-retreat-41555.herokuapp.com"]
+ALLOWED_HOSTS = ["*", "glacial-retreat-41555.herokuapp.com"]
 
 
 # Application definition
