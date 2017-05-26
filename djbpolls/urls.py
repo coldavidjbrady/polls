@@ -24,4 +24,5 @@ urlpatterns = [
     #url(r'^poll/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
 ] #+ static(MEDIA_URL, document_root=MEDIA_ROOT)
-urlpatterns += staticfiles_urlpatterns()
+# Commented out because I am using WhiteNoice to display static files (djb - 26 May 17)
+#urlpatterns += staticfiles_urlpatterns()
