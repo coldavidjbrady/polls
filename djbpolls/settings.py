@@ -42,13 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls']
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+#    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', # Critical for getting the django admin to work on Heroku! (djb 10 Jul 16)
@@ -73,15 +73,12 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djbpolls.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pollsdatabase',
+        'NAME': 'polls',
         'USER': 'dbrady',
         'PASSWORD': 'WestPoint87',
         'HOST': '127.0.0.1',
@@ -135,6 +132,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR + '/media/'
 
+WSGI_APPLICATION = 'djbpolls.wsgi.application'
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -143,4 +141,4 @@ DATABASES['default'].update(db_from_env)
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
