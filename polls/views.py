@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.views import generic
 
 from .models import Question, Choice
@@ -21,6 +21,8 @@ class DetailView(generic.DetailView):
 
 
 class ResultsView(generic.DetailView):
+    # Django provides the context variable "question" automatically since we are using the Question model
+    # and it knows which Question to use since the pk is provided in the urlconf (djb - 1 Sep 18).
     model = Question
     template_name = 'polls/results.html'
 
